@@ -58,11 +58,11 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
 #intro .c{position:relative;text-align:center;transition:opacity .6s,transform .9s var(--ease)}
 .go #intro .c{opacity:0;transform:scale(1.5);pointer-events:none}
 #cupid{width:min(86vw,360px);margin:0 auto 6px;overflow:visible}
-#cupid .hp{fill:rgba(255,122,162,0);stroke:var(--rose);stroke-width:.5;stroke-dasharray:100;stroke-dashoffset:100;transform-box:fill-box;transform-origin:center;
-  animation:draw 1.3s ease .2s forwards,fillin .5s ease 1.75s forwards,hit .7s var(--ease) 1.75s}
-#cupid .ar{opacity:0;animation:fly .65s cubic-bezier(.5,0,.9,.6) 1.1s forwards}
+#cupid .hp{fill:rgba(255,122,162,0);stroke:var(--rose);stroke-width:.6;stroke-dasharray:100;stroke-dashoffset:100;transform-box:fill-box;transform-origin:center;
+  animation:draw .9s ease .1s forwards,fillin .4s ease 1.2s forwards,hit .6s var(--ease) 1.2s}
+#cupid .ar{opacity:0;animation:fly .6s cubic-bezier(.4,0,.8,.5) .6s forwards}
 #cupid .ar *{stroke:var(--gold);stroke-linecap:round}
-#cupid .rg{fill:none;stroke:var(--rose);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;animation:ring .9s ease-out 1.75s}
+#cupid .rg{fill:none;stroke:var(--rose);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;animation:ring .9s ease-out 1.2s}
 #cupid .tr{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:4 6;opacity:0;animation:trail .9s ease 1s forwards}
 #intro p{font-family:var(--script);font-size:2.3rem;color:var(--blush);opacity:0;animation:fade 1s ease 2.2s forwards}
 #enter{margin-top:22px;padding:13px 38px;border-radius:99px;border:1px solid var(--rose);background:linear-gradient(135deg,rgba(255,122,162,.35),rgba(122,44,255,.25));
@@ -71,13 +71,13 @@ button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
 #enter:active{transform:scale(.97)}
 #enter small{display:block;font-size:.72rem;color:var(--gold);margin-top:2px;letter-spacing:.04em}
 @keyframes draw{to{stroke-dashoffset:0}}@keyframes fillin{to{fill:rgba(255,122,162,1)}}@keyframes fade{to{opacity:1}}
-@keyframes fly{0%{opacity:0;transform:translateX(-150px)}15%{opacity:1}100%{opacity:1;transform:translateX(70px)}}
+@keyframes fly{0%{opacity:0;transform:translateX(0)}10%{opacity:1}100%{opacity:1;transform:translateX(80px)}}
 @keyframes hit{30%{transform:scale(1.22) rotate(-3deg)}60%{transform:scale(.95)}100%{transform:scale(1)}}
 @keyframes ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(5)}}
 @keyframes trail{0%{opacity:0}30%{opacity:.7}100%{opacity:0}}
 
 #snd{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;width:46px;height:46px;border-radius:50%;
-  border:1px solid var(--line);background:rgba(20,6,26,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;color:var(--blush);opacity:0;pointer-events:none;transition:opacity .8s 2s,transform .16s var(--ease)}
+  border:1px solid var(--line);background:rgba(20,6,26,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;color:var(--blush);transition:transform .16s var(--ease)}
 #snd:active{transform:scale(.92)}
 .go #snd{opacity:1;pointer-events:auto}
 
@@ -240,7 +240,7 @@ h2,.hero-sub,.since{text-wrap:balance}.lead,.ev p{text-wrap:pretty}
 
 @media (prefers-reduced-motion:reduce){
   .aurora i,.days-n,.scroll,.spot::before,.vid button .ic,.inf path,.in .inf path,.names span.ch,.tick,#sh svg{animation:none!important}
-  #cupid .hp{animation:none;stroke-dashoffset:0;fill:var(--rose)}#cupid .ar{animation:none;opacity:1;transform:translateX(70px)}#cupid .rg,#cupid .tr{display:none}
+  #cupid .hp{animation:none;stroke-dashoffset:0;fill:var(--rose)}#cupid .ar{animation:none;opacity:1;transform:translateX(80px)}#cupid .rg,#cupid .tr{display:none}
   #intro p,#enter,.scroll{opacity:1}.go .scroll{opacity:.8}
   .inf path,.in .inf path{stroke-dashoffset:0}
   .names span.ch{opacity:1;transform:none;filter:none}
@@ -284,11 +284,10 @@ h2,.hero-sub,.since{text-wrap:balance}.lead,.ev p{text-wrap:pretty}
 <div id="intro">
   <div class="h l"></div><div class="h r"></div>
   <div class="c">
-    <svg id="cupid" viewBox="0 0 240 120" aria-hidden="true">
-      <path class="tr" d="M-40 95C20 30 70 90 120 60"/>
-      <g transform="translate(150 18) scale(3.4)"><path class="hp" pathLength="100" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></g>
-      <circle class="rg" cx="191" cy="59" r="14"/>
-      <g class="ar"><path d="M10 59H108" stroke-width="3"/><path d="M98 50L112 59L98 68" fill="none" stroke-width="3" stroke-linejoin="round"/><path d="M10 59L2 50M18 59L10 50M10 59L2 68M18 59L10 68" stroke-width="2.5"/></g>
+    <svg id="cupid" viewBox="0 0 300 110" aria-hidden="true">
+      <g transform="translate(196 22) scale(3.1)"><path class="hp" pathLength="100" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54z"/></g>
+      <circle class="rg" cx="233" cy="60" r="22"/>
+      <g class="ar"><path d="M10 48H120" stroke-width="3"/><path d="M106 38L120 48L106 58" fill="none" stroke-width="3" stroke-linejoin="round"/><path d="M10 48L2 38M10 48L2 58" stroke-width="2.5"/></g>
     </svg>
     <p>Para ti, Amayely</p>
     <button id="enter">Entrar<small>&lt;3</small></button>
@@ -385,7 +384,7 @@ h2,.hero-sub,.since{text-wrap:balance}.lead,.ev p{text-wrap:pretty}
     <div class="vid rv" id="vid" style="--d:.2s"></div>
   </section>
 
-  <section id="music" class="cv">
+  <section id="music">
     <h2 class="rv">Nuestra música</h2>
     <p class="lead rv" style="--d:.1s">Una canción para ti y toda nuestra playlist.</p>
     <div class="song rv"><h3 class="sp-t" style="font-family:var(--script);font-weight:400;font-size:2rem;color:var(--blush);margin-bottom:10px">Nuestra canción</h3><div class="sp" style="margin:0"><div id="songBox" style="min-height:152px"></div></div></div>
@@ -505,52 +504,31 @@ addEventListener("keydown", e => { if (!lb.classList.contains("on")) return; if 
 let sx = 0; lb.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
 lb.addEventListener("touchend", e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) { swiped = 1; setTimeout(() => swiped = 0, 400); show(cur + (dx < 0 ? 1 : -1)); } });
 
-/* ---------- Sonido ambiente generado en el navegador ---------- */
-const Snd = (() => {
-  let c, m, on = false, t1, t2, au;
-  const N = [220, 277.18, 329.63, 415.3, 493.88, 554.37, 659.25], btn = E("snd");
-  const draw = () => { btn.innerHTML = ICON(on ? "vol" : "mute"); btn.setAttribute("aria-pressed", on); };
-  function init() {
-    if (c) return; const A = window.AudioContext || window.webkitAudioContext; if (!A) return;
-    c = new A(); m = c.createGain(); m.gain.value = 0; m.connect(c.destination);
-    if (CONFIG.music) return;
-    const lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 650; lp.connect(m);
-    [110, 220, 277.18, 329.63].forEach((f, i) => { const o = c.createOscillator(), g = c.createGain(); o.frequency.value = f; o.detune.value = (i - 1.5) * 5; g.gain.value = i ? .06 : .1; o.connect(g); g.connect(lp); o.start(); });
-  }
-  function note(f, v = .1, d = 2.2, t = 0) { if (!c || !on) return; const o = c.createOscillator(), g = c.createGain(), n = c.currentTime + t;
-    o.frequency.value = f; g.gain.setValueAtTime(0, n); g.gain.linearRampToValueAtTime(v, n + .02); g.gain.exponentialRampToValueAtTime(.0001, n + d); o.connect(g); g.connect(m); o.start(n); o.stop(n + d + .1); }
-  function thump(t) { const o = c.createOscillator(), g = c.createGain(), n = c.currentTime + t; o.frequency.setValueAtTime(80, n); o.frequency.exponentialRampToValueAtTime(38, n + .16);
-    g.gain.setValueAtTime(0, n); g.gain.linearRampToValueAtTime(.35, n + .02); g.gain.exponentialRampToValueAtTime(.001, n + .22); o.connect(g); g.connect(m); o.start(n); o.stop(n + .25); }
-  function start() {
-    init(); if (!c) return; c.resume(); on = true; draw();
-    m.gain.cancelScheduledValues(c.currentTime); m.gain.setTargetAtTime(.5, c.currentTime, .8);
-    if (CONFIG.music) { au = au || Object.assign(new Audio(CONFIG.music), { loop: true, volume: .5 }); au.play().catch(() => {}); }
-    else t1 = setInterval(() => note(N[Math.random() * N.length | 0] * (Math.random() < .5 ? 2 : 1), .07, 3), 2600);
-    t2 = setInterval(() => { thump(0); thump(.26); }, 1800);
-  }
-  function stop() { on = false; draw(); clearInterval(t1); clearInterval(t2); if (c) m.gain.setTargetAtTime(0, c.currentTime, .2); if (au) au.pause(); }
-  btn.onclick = () => on ? stop() : start();
-  document.addEventListener("visibilitychange", () => { if (!c || !on) return; document.hidden ? c.suspend() : c.resume(); });
-  draw();
-  return { start, stop, get on() { return on; }, chime: () => [0, .14, .28, .42].forEach((t, i) => note(N[i + 2] * 2, .08, 1.8, t)), spark: () => note(N[Math.random() * N.length | 0] * 4, .04, 1.1) };
-})();
-
-/* ---------- Spotify: playlist, canción y subtítulos ---------- */
+/* ---------- Música (Spotify): suena apenas el navegador lo permita ---------- */
 E("plist").src = `https://open.spotify.com/embed/playlist/${CONFIG.playlist}?utm_source=generator&theme=0`;
+const SONG = { ctl: null, paused: true };
+function playSong() { if (SONG.ctl && SONG.paused) { try { SONG.ctl.play(); } catch (e) {} } }
 (function () {
-  const sub = E("sub"), L = CONFIG.lyrics; let last = -1, loaded = false;
+  const sub = E("sub"), L = CONFIG.lyrics, btn = E("snd"); let last = -1;
+  btn.innerHTML = ICON("mute");
+  btn.onclick = () => { if (!SONG.ctl) return; SONG.paused ? SONG.ctl.play() : SONG.ctl.pause(); };
   window.onSpotifyIframeApiReady = api => api.createController(E("songBox"), { uri: `spotify:track:${CONFIG.song}`, width: "100%", height: 152 }, ctl => {
+    SONG.ctl = ctl;
+    ctl.addListener("ready", playSong);
     ctl.addListener("playback_update", ev => {
       const d = ev.data; if (!d) return;
-      if (!d.isPaused && Snd.on) Snd.stop();
+      if (SONG.paused !== d.isPaused) { SONG.paused = d.isPaused; btn.innerHTML = ICON(d.isPaused ? "mute" : "vol"); btn.setAttribute("aria-pressed", String(!d.isPaused)); }
       if (!L.length) return;
       if (d.isPaused || d.isBuffering) { sub.classList.remove("on"); return; }
       const t = d.position / 1000; let k = -1; for (let i = 0; i < L.length && L[i][0] <= t; i++) k = i;
       if (k !== last) { last = k; if (k < 0) sub.classList.remove("on"); else { sub.textContent = L[k][1]; sub.classList.add("on"); } }
     });
+    playSong();
   });
-  new IntersectionObserver((es, o) => { if (!es[0].isIntersecting || loaded) return; loaded = true; o.disconnect();
-    const s = document.createElement("script"); s.src = "https://open.spotify.com/embed/iframe-api/v1"; s.async = true; document.body.appendChild(s); }, { rootMargin: "600px 0px" }).observe(E("music"));
+  /* El navegador solo deja sonar tras un toque o una tecla: el primero, en cualquier parte, activa la canción */
+  const unlock = () => { playSong(); if (SONG.ctl && !SONG.paused) ["pointerdown", "keydown", "touchstart"].forEach(ev => removeEventListener(ev, unlock)); };
+  ["pointerdown", "keydown", "touchstart"].forEach(ev => addEventListener(ev, unlock, { passive: true }));
+  const s = document.createElement("script"); s.src = "https://open.spotify.com/embed/iframe-api/v1"; s.async = true; document.body.appendChild(s);
 })();
 
 /* ---------- Contador (siempre con la hora real) ---------- */
@@ -597,7 +575,7 @@ function countUp() {
   if (RM) { upd(1); ready = true; rings.classList.add("live"); tickLoop(); return; }
   const t0 = performance.now();
   (function f(ts) { const p = (ts - t0) / 2800; upd(ease(p));
-    if (p < 1) requestAnimationFrame(f); else { ready = true; rings.classList.add("live"); Snd.chime(); tickLoop(); } })(t0);
+    if (p < 1) requestAnimationFrame(f); else { ready = true; rings.classList.add("live"); tickLoop(); } })(t0);
 }
 upd(0);
 
@@ -622,7 +600,7 @@ navL.forEach(a => { const t = E(a.hash.slice(1)); t && spy.observe(t); });
 
 /* ---------- Entrada ---------- */
 E("enter").onclick = () => {
-  Snd.start(); document.body.classList.add("go"); arm(); setTimeout(() => E("intro").remove(), 2400);
+  playSong(); document.body.classList.add("go"); arm(); setTimeout(() => E("intro").remove(), 2400);
   const t0 = performance.now(); (function f(ts) { const p = Math.min(1, RM ? 1 : (ts - t0 - 2400) / 2200); if (p > 0) E("km").textContent = (KM * ease(p)).toFixed(1).replace(".", ","); if (p < 1) requestAnimationFrame(f); })(t0);
 };
 
@@ -635,7 +613,7 @@ E("enter").onclick = () => {
   const stars = Array.from({ length: small ? 30 : 60 }, () => ({ x: Math.random(), y: Math.random(), r: Math.random() * 1.3 + .3, p: Math.random() * 6.28, v: .01 + Math.random() * .03 }));
   const mk = i => ({ x: Math.random() * w, y: i ? Math.random() * h : h + 30, s: .35 + Math.random() * .8, v: .3 + Math.random() * .7, sw: Math.random() * 6.28, a: .1 + Math.random() * .28 });
   const hs = Array.from({ length: small ? 8 : 16 }, () => mk(true)), bs = [];
-  const burst = (px, py) => { Snd.spark(); for (let i = 0; i < 16; i++) { const an = 6.283 * i / 16 + Math.random() * .4, sp = 2 + Math.random() * 4; bs.push({ x: px, y: py, s: .45 + Math.random() * .6, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp - 1.5, life: 1, sw: 0 }); } };
+  const burst = (px, py) => { for (let i = 0; i < 16; i++) { const an = 6.283 * i / 16 + Math.random() * .4, sp = 2 + Math.random() * 4; bs.push({ x: px, y: py, s: .45 + Math.random() * .6, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp - 1.5, life: 1, sw: 0 }); } };
   if (!RM) addEventListener("pointerdown", e => { if (e.target.closest("button,a,iframe,#lb,#nav")) return; burst(e.clientX, e.clientY); }, { passive: true });
   const dr = (p, col) => { x.save(); x.translate(p.x, p.y); x.scale(p.s, p.s); x.rotate(Math.sin(p.sw) * .3); x.translate(-12, -12); x.fillStyle = col; x.fill(H); x.restore(); };
   let run = true; document.addEventListener("visibilitychange", () => { const was = run; run = !document.hidden; if (run && !was) loop(); });
