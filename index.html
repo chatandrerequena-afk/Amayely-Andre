@@ -252,6 +252,95 @@ h2,.hero-sub,.since{text-wrap:balance}.lead,.ev p{text-wrap:pretty}
   .g:hover img,.pol:hover{transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ===== MEJORAS ESTÉTICAS (sobrescriben lo anterior, no cambian contenido) ===== */
+:root{--card:linear-gradient(145deg,rgba(255,246,241,.09),rgba(255,246,241,.025));--edge:rgba(255,194,212,.22);--glow:0 18px 50px rgba(255,122,162,.14)}
+::selection{background:var(--rose);color:var(--night)}
+html{scrollbar-color:var(--rose) var(--night);scrollbar-width:thin}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+
+/* Atmósfera: viñeta suave + brillo cálido */
+body::after{content:"";position:fixed;inset:0;z-index:3;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(10,2,14,.55)),radial-gradient(60% 40% at 50% 100%,rgba(255,179,107,.07),transparent)}
+.aurora i{filter:saturate(1.25) blur(6px)}
+
+/* Títulos con degradado dorado-rosa */
+h2{background:linear-gradient(100deg,var(--blush) 10%,#fff 45%,var(--gold) 70%,var(--rose));-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;text-shadow:none;filter:drop-shadow(0 0 22px rgba(255,122,162,.45));padding:.05em .15em}
+h2::after{content:"";display:block;width:64px;height:2px;margin:12px auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,var(--rose),var(--gold),transparent)}
+.lead{font-size:1.02rem;letter-spacing:.01em}
+.hero-sub{font-size:clamp(.95rem,3.6vw,1.1rem);padding:7px 18px;border:1px solid var(--edge);border-radius:99px;background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* Separador entre secciones */
+section+section::before{content:"";position:absolute;top:0;left:50%;width:min(60%,320px);height:1px;transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,var(--edge),transparent)}
+
+/* Entrada */
+#enter{background:linear-gradient(135deg,rgba(255,122,162,.5),rgba(122,44,255,.35));box-shadow:0 0 0 1px rgba(255,217,160,.25) inset,0 10px 34px rgba(255,122,162,.35);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#intro p{text-shadow:0 0 28px rgba(255,122,162,.7)}
+
+/* Hero */
+.kid .ring2{box-shadow:0 0 0 6px rgba(255,246,241,.05),0 0 44px rgba(255,122,162,.45)}
+.mid .km{background:linear-gradient(90deg,var(--gold),var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none}
+.mid a{border:1px solid var(--edge);border-radius:99px;padding:7px 14px;background:var(--glass);transition:background .25s,border-color .25s}
+@media (hover:hover) and (pointer:fine){.mid a:hover{background:rgba(255,122,162,.18);border-color:var(--rose)}}
+
+/* Contador: anillos de cristal */
+.days-n{background:linear-gradient(180deg,#fff 0%,var(--blush) 30%,var(--rose) 80%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  text-shadow:none;filter:drop-shadow(0 0 40px rgba(255,122,162,.55))}
+.ring{border-radius:50%;background:radial-gradient(closest-side,rgba(255,246,241,.07),transparent 78%);box-shadow:0 0 40px rgba(255,122,162,.12)}
+.ring .fg{filter:drop-shadow(0 0 5px rgba(255,122,162,.8))}
+.since{padding:0 8px}
+
+/* Tarjetas de cristal */
+.tot div{border:1px solid var(--edge);border-image:none;border-radius:20px;padding:20px 12px;background:var(--card);box-shadow:var(--glow);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tot b{background:linear-gradient(90deg,var(--blush),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.next{padding:30px 24px;border:1px solid var(--edge);border-radius:26px;background:var(--card);box-shadow:var(--glow);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.track{height:8px}
+.why div{padding:16px 18px;border:1px solid var(--edge);border-radius:18px;background:var(--card);transition:transform .35s var(--ease),border-color .3s}
+@media (hover:hover) and (pointer:fine){.why div:hover{transform:translateY(-3px);border-color:var(--rose)}}
+.why .ic{filter:drop-shadow(0 0 6px rgba(255,122,162,.7))}
+
+/* Línea de tiempo */
+.ev{padding:18px 20px 20px;margin-bottom:22px;border:1px solid var(--edge);border-radius:20px;background:var(--card);box-shadow:var(--glow)}
+.ev::before{left:-35px;top:24px}
+.ev time{letter-spacing:.04em}
+
+/* Fotos */
+.spot .fr{box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 60px rgba(255,122,162,.25)}
+.pol{position:relative;box-shadow:0 26px 54px rgba(0,0,0,.5)}
+.pol::before{content:"";position:absolute;top:-12px;left:50%;width:78px;height:24px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,217,160,.55);
+  box-shadow:0 2px 6px rgba(0,0,0,.2);backdrop-filter:blur(2px)}
+.g{border:1px solid var(--edge);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.g::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(255,122,162,.22));opacity:0;transition:opacity .35s;pointer-events:none}
+@media (hover:hover) and (pointer:fine){.g:hover::after{opacity:1}}
+.more{background:var(--glass);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+#lb img{box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px var(--edge)}
+#lb button{border-radius:50%;background:rgba(20,6,26,.5)}
+
+/* Video y música */
+.vid{border:1px solid var(--edge);box-shadow:0 30px 80px rgba(255,122,162,.25),0 0 0 6px rgba(255,246,241,.03)}
+.sp{border:1px solid var(--edge);border-radius:20px}
+
+/* Controles flotantes y navegación */
+#snd{box-shadow:0 8px 24px rgba(0,0,0,.45),0 0 18px rgba(255,122,162,.25);border-color:var(--edge)}
+#nav{background:rgba(20,6,26,.7);border:1px solid var(--edge)}
+#nav a[aria-current]{background:linear-gradient(135deg,var(--blush),var(--gold));color:var(--night)}
+
+/* Pie */
+footer .big{background:linear-gradient(100deg,var(--blush),#fff,var(--rose));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  text-shadow:none;filter:drop-shadow(0 0 30px rgba(255,122,162,.6))}
+footer{position:relative}
+footer::before{content:"";display:block;width:min(70%,360px);height:1px;margin:0 auto 50px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+
+/* Brillo que recorre el botón (solo si el usuario permite movimiento) */
+@media (prefers-reduced-motion:no-preference){
+  #enter{position:relative;overflow:hidden}
+  #enter::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);animation:shine 3.4s ease-in-out 3.4s infinite}
+}
+@media (max-width:480px){section{padding:68px 16px}.ev{padding:16px}.tot div{padding:16px 10px}}
 </style>
 </head>
 <body>
@@ -429,6 +518,18 @@ const CONFIG = {
   /* Spotify: playlist y canción (Aerosmith, "I Don't Want to Miss a Thing") */
   playlist: "1YOJZ3UsansL0bkD480OyM",
   song: "5qlJg0Wbj3sslxfwiaRNpq",
+  /* Canciones románticas en inglés (voz masculina). Al abrir la página suena una al azar.
+     Para agregar otra: en Spotify, Compartir > Copiar enlace, y pega el código entre /track/ y ? */
+  songs: [
+    "5qlJg0Wbj3sslxfwiaRNpq", /* Aerosmith - I Don't Want to Miss a Thing */
+    "0tgVpDi06FyKpA1z0VMD4v", /* Ed Sheeran - Perfect */
+    "34gCuhDGsG4bRPIf9bb02f", /* Ed Sheeran - Thinking Out Loud */
+    "1HNkqx9Ahdgi1Ixy2xkKkL", /* Ed Sheeran - Photograph */
+    "44AyOl4qVkzS48vBsbNXaC", /* Elvis Presley - Can't Help Falling in Love */
+    "7BqBn9nzAq8spo5e7cZ0dJ", /* Bruno Mars - Just the Way You Are */
+    "3U4isOIWM3VvDubwSItgJi", /* John Legend - All of Me */
+    "0T5iIrXA4p5GsubkhuBIKV"  /* Stephen Sanchez - Until I Found You */
+  ],
   /* Subtítulos: [segundo, "texto"]. Pega aquí la letra con sus tiempos (yo no puedo escribir letras con copyright).
      Ejemplo: [[12, "primera línea"], [17, "segunda línea"]] */
   lyrics: [],
@@ -504,15 +605,16 @@ addEventListener("keydown", e => { if (!lb.classList.contains("on")) return; if 
 let sx = 0; lb.addEventListener("touchstart", e => sx = e.touches[0].clientX, { passive: true });
 lb.addEventListener("touchend", e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) { swiped = 1; setTimeout(() => swiped = 0, 400); show(cur + (dx < 0 ? 1 : -1)); } });
 
-/* ---------- Música (Spotify): suena apenas el navegador lo permita ---------- */
+/* ---------- Música (Spotify): canción aleatoria, suena apenas el navegador lo permita ---------- */
 E("plist").src = `https://open.spotify.com/embed/playlist/${CONFIG.playlist}?utm_source=generator&theme=0`;
 const SONG = { ctl: null, paused: true };
+const PICK = (CONFIG.songs && CONFIG.songs.length ? CONFIG.songs : [CONFIG.song])[Math.floor(Math.random() * (CONFIG.songs && CONFIG.songs.length ? CONFIG.songs.length : 1))];
 function playSong() { if (SONG.ctl && SONG.paused) { try { SONG.ctl.play(); } catch (e) {} } }
 (function () {
   const sub = E("sub"), L = CONFIG.lyrics, btn = E("snd"); let last = -1;
   btn.innerHTML = ICON("mute");
   btn.onclick = () => { if (!SONG.ctl) return; SONG.paused ? SONG.ctl.play() : SONG.ctl.pause(); };
-  window.onSpotifyIframeApiReady = api => api.createController(E("songBox"), { uri: `spotify:track:${CONFIG.song}`, width: "100%", height: 152 }, ctl => {
+  window.onSpotifyIframeApiReady = api => api.createController(E("songBox"), { uri: `spotify:track:${PICK}`, width: "100%", height: 152 }, ctl => {
     SONG.ctl = ctl;
     ctl.addListener("ready", playSong);
     ctl.addListener("playback_update", ev => {
